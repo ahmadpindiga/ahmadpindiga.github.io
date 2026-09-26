@@ -65,7 +65,7 @@
 
 
         /* =========================
-           NAVIGATION
+           EXISTING NAVIGATION
         ========================= */
 
         nav {
@@ -87,6 +87,120 @@
 
         nav a:hover {
             color: #25D366;
+        }
+
+
+        /* =========================
+           NEW HAMBURGER MENU
+           Independent from existing nav
+        ========================= */
+
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .hamburger-button {
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 8px;
+            background: #082f49;
+            cursor: pointer;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hamburger-button span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+
+            transition: 0.3s ease;
+        }
+
+        /* Hamburger becomes X */
+
+        .hamburger-button.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-button.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Dropdown */
+
+        .hamburger-dropdown {
+            position: absolute;
+            top: 55px;
+            right: 0;
+
+            width: 190px;
+            background: white;
+
+            border-radius: 10px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(-10px);
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s ease;
+        }
+
+        /* Dropdown visible */
+
+        .hamburger-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Dropdown links */
+
+        .hamburger-dropdown a {
+            display: block;
+
+            padding: 14px 18px;
+
+            color: #082f49;
+            text-decoration: none;
+            font-weight: bold;
+
+            border-bottom: 1px solid #eeeeee;
+
+            transition: background 0.2s ease,
+                        color 0.2s ease;
+        }
+
+        .hamburger-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .hamburger-dropdown a:hover {
+            background: #eaf3f8;
+            color: #0b3d62;
         }
 
 
@@ -326,6 +440,22 @@
                 text-align: center;
             }
 
+            /* Hamburger on smaller screens */
+
+            .hamburger-menu {
+                top: 15px;
+                right: 15px;
+            }
+
+            .hamburger-button {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hamburger-dropdown {
+                width: 175px;
+            }
+
         }
 
     </style>
@@ -355,7 +485,7 @@
 
 
     <!-- =========================
-         NAVIGATION
+         EXISTING NAVIGATION
     ========================== -->
 
     <nav>
@@ -377,6 +507,48 @@
         </a>
 
     </nav>
+
+
+    <!-- =========================
+         NEW HAMBURGER MENU
+    ========================== -->
+
+    <div class="hamburger-menu">
+
+        <button class="hamburger-button"
+                id="hamburgerButton"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <div class="hamburger-dropdown"
+             id="hamburgerDropdown">
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#archive">
+                My Archive
+            </a>
+
+            <a href="#skills">
+                Skills
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================
@@ -703,6 +875,87 @@
         </p>
 
     </footer>
+
+
+    <!-- =========================
+         HAMBURGER MENU JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const hamburgerButton =
+            document.getElementById("hamburgerButton");
+
+        const hamburgerDropdown =
+            document.getElementById("hamburgerDropdown");
+
+
+        /* Open / close menu */
+
+        hamburgerButton.addEventListener("click", function(event) {
+
+            event.stopPropagation();
+
+            hamburgerDropdown.classList.toggle("show");
+
+            hamburgerButton.classList.toggle("active");
+
+            const isOpen =
+                hamburgerDropdown.classList.contains("show");
+
+            hamburgerButton.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
+
+
+        /* Close menu when a menu link is clicked */
+
+        hamburgerDropdown
+            .querySelectorAll("a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    hamburgerDropdown.classList.remove("show");
+
+                    hamburgerButton.classList.remove("active");
+
+                    hamburgerButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                });
+
+            });
+
+
+        /* Close menu when clicking outside */
+
+        document.addEventListener("click", function(event) {
+
+            if (
+                !hamburgerButton.contains(event.target) &&
+                !hamburgerDropdown.contains(event.target)
+            ) {
+
+                hamburgerDropdown.classList.remove("show");
+
+                hamburgerButton.classList.remove("active");
+
+                hamburgerButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    </script>
 
 
 </body>
