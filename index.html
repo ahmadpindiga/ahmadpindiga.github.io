@@ -1,471 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ahmad Shuaibu | Professional Profile</title>
-
-<style>
-
-/* =========================
-   GENERAL
-========================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: #f4f7fa;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    background: #0b3d62;
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
-    position: relative;
-}
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid white;
-    margin-bottom: 15px;
-}
-
-header h1 {
-    font-size: 34px;
-    margin-bottom: 8px;
-}
-
-header p {
-    font-size: 18px;
-}
-
-
-/* =========================
-   EXISTING NAVIGATION
-========================= */
-
-nav {
-    background: #082f49;
-    text-align: center;
-    padding: 14px 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-nav a:hover {
-    color: #25D366;
-}
-
-
-/* =================================================
-   HAMBURGER MENU
-================================================= */
-
-.hamburger-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 99999;
-}
-
-
-/* Three-line button */
-
-.hamburger-button {
-    width: 50px;
-    height: 50px;
-
-    background: white;
-    border: 2px solid #082f49;
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 5px;
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-
-
-/* Three lines */
-
-.hamburger-button span {
-    width: 27px;
-    height: 3px;
-
-    background: #082f49;
-
-    display: block;
-
-    border-radius: 3px;
-
-    transition: 0.3s;
-}
-
-
-/* Change to X */
-
-.hamburger-button.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger-button.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-button.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* Dropdown */
-
-.hamburger-dropdown {
-    position: absolute;
-
-    top: 60px;
-    right: 0;
-
-    width: 190px;
-
-    background: white;
-
-    border-radius: 8px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
-    overflow: hidden;
-
-    display: none;
-}
-
-
-/* Display dropdown */
-
-.hamburger-dropdown.show {
-    display: block;
-}
-
-
-/* Dropdown links */
-
-.hamburger-dropdown a {
-    display: block;
-
-    padding: 15px 18px;
-
-    color: #082f49;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-.hamburger-dropdown a:last-child {
-    border-bottom: none;
-}
-
-.hamburger-dropdown a:hover {
-    background: #eaf3f8;
-    color: #0b3d62;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px 25px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-section h2 {
-    color: #0b3d62;
-    margin-bottom: 15px;
-    font-size: 26px;
-}
-
-section p {
-    margin-bottom: 10px;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.skill {
-    background: #eaf3f8;
-    padding: 16px;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button {
-    display: inline-block;
-    background: #0b3d62;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 10px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #082f49;
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp-button {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 10px;
-    margin-left: 8px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.whatsapp-button:hover {
-    background: #128C7E;
-}
-
-
-/* =========================
-   ARCHIVE
-========================= */
-
-.archive-intro {
-    margin-bottom: 20px;
-}
-
-.archive-list {
-    margin-top: 20px;
-}
-
-.document {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eef5f9;
-    padding: 16px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    border-left: 5px solid #0b3d62;
-}
-
-.document-info {
-    flex: 1;
-}
-
-.document-name {
-    font-weight: bold;
-    color: #0b3d62;
-    font-size: 17px;
-}
-
-.document-type {
-    font-size: 13px;
-    color: #666;
-    margin-top: 3px;
-}
-
-.document-button {
-    background: #0b3d62;
-    color: white;
-    padding: 9px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 15px;
-    white-space: nowrap;
-}
-
-.document-button:hover {
-    background: #082f49;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-info {
-    margin-top: 15px;
-}
-
-.contact-info p {
-    margin: 8px 0;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #082f49;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 40px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    header {
-        padding: 35px 15px;
-    }
-
-    header h1 {
-        font-size: 27px;
-    }
-
-    header p {
-        font-size: 16px;
-    }
-
-    .profile-photo {
-        width: 125px;
-        height: 125px;
-    }
-
-    nav {
-        padding: 10px 5px;
-    }
-
-    nav a {
-        margin: 5px 6px;
-        font-size: 14px;
-    }
-
-    section {
-        margin: 20px 10px;
-        padding: 25px 18px;
-    }
-
-    section h2 {
-        font-size: 23px;
-    }
-
-    .skills {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .skill {
-        padding: 12px 8px;
-        font-size: 14px;
-    }
-
-    .whatsapp-button {
-        margin-left: 0;
-    }
-
-    .document {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .document-button {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .hamburger-container {
-        top: 12px;
-        right: 12px;
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ahmad Shuaibu | Professional Profile</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: relative;
+            background: #0b3d62;
+            color: white;
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+
+        header img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        /* =========================
+           HAMBURGER MENU
+        ========================== */
+
+        .hamburger-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 999999;
+        }
+
+        .hamburger-button {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border: 3px solid #082f49;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .hamburger-button span {
+            display: block;
+            height: 4px;
+            background: #082f49;
+            margin: 5px 0;
+            border-radius: 2px;
+        }
+
+        .hamburger-dropdown {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 0;
+            width: 200px;
+            background: white;
+            border: 2px solid #082f49;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .hamburger-dropdown.show {
+            display: block;
+        }
+
+        .hamburger-dropdown a {
+            display: block;
+            padding: 15px;
+            color: #082f49;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .hamburger-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .hamburger-dropdown a:hover {
+            background: #eaf4fb;
+        }
+
+        /* =========================
+           WELCOME MOVING MESSAGE
+        ========================== */
+
+        .welcome-bar {
+            width: 100%;
+            overflow: hidden;
+            background: #082f49;
+            border-top: 2px solid #5dade2;
+            border-bottom: 2px solid #5dade2;
+            padding: 13px 0;
+        }
+
+        .welcome-text {
+            display: inline-block;
+            white-space: nowrap;
+            color: white;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 28px;
+            font-weight: bold;
+            font-style: italic;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding-left: 100%;
+            animation: welcomeMove 12s linear infinite;
+        }
+
+        @keyframes welcomeMove {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #0b3d62;
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+
+        section p {
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background: #eaf4fb;
+            padding: 12px 15px;
+            border-left: 4px solid #0b3d62;
+            border-radius: 5px;
+        }
+
+        /* =========================
+           CV SECTION
+        ========================== */
+
+        .cv-button {
+            display: inline-block;
+            background: #0b3d62;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .cv-button:hover {
+            background: #082f49;
+        }
+
+        /* =========================
+           ARCHIVE
+        ========================== */
+
+        .archive-list {
+            list-style: none;
+        }
+
+        .archive-list li {
+            margin-bottom: 12px;
+        }
+
+        .archive-list a {
+            color: #0b3d62;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .archive-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #0b3d62;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #082f49;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 35px 15px 25px;
+            }
+
+            header img {
+                width: 115px;
+                height: 115px;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .hamburger-container {
+                top: 15px;
+                right: 15px;
+            }
+
+            .hamburger-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .welcome-text {
+                font-size: 21px;
+                letter-spacing: 3px;
+            }
+
+            main {
+                padding: 20px 12px;
+            }
+
+            section {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-    <!-- HAMBURGER BUTTON -->
+    <!-- =========================
+         HAMBURGER MENU
+    ========================== -->
 
     <div class="hamburger-container">
 
@@ -473,20 +330,14 @@ footer {
             class="hamburger-button"
             id="hamburgerButton"
             type="button"
-            aria-label="Open menu">
-
+            aria-label="Open menu"
+        >
             <span></span>
             <span></span>
             <span></span>
-
         </button>
 
-
-        <!-- DROPDOWN -->
-
-        <div
-            class="hamburger-dropdown"
-            id="hamburgerDropdown">
+        <div class="hamburger-dropdown" id="hamburgerDropdown">
 
             <a href="#about">About</a>
 
@@ -501,432 +352,265 @@ footer {
     </div>
 
 
-    <img
-        src="profile.jpg"
-        alt="Ahmad Shuaibu"
-        class="profile-photo">
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <img src="profile.jpg" alt="Ahmad Shuaibu">
+
+        <h1>Ahmad Shuaibu</h1>
+
+        <p>
+            Radiographer | Digital Skills | Remote Work Professional
+        </p>
+
+    </header>
 
 
-    <h1>
-        Ahmad Shuaibu
-    </h1>
+    <!-- =========================
+         MOVING WELCOME MESSAGE
+    ========================== -->
 
+    <div class="welcome-bar">
 
-    <p>
-        Radiographer | Digital Skills | Remote Work Professional
-    </p>
-
-</header>
-
-
-<!-- =========================
-     EXISTING NAVIGATION
-========================= -->
-
-<nav>
-
-    <a href="#about">
-        About
-    </a>
-
-    <a href="#skills">
-        Skills
-    </a>
-
-    <a href="#archive">
-        My Archive
-    </a>
-
-    <a href="#contact">
-        Contact
-    </a>
-
-</nav>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section id="about">
-
-    <h2>
-        About Me
-    </h2>
-
-    <p>
-        I am a qualified Radiographer with professional
-        experience in diagnostic imaging, including Digital
-        Radiography, ultrasonography and Computed
-        Tomography.
-    </p>
-
-    <p>
-        I am also developing my digital and remote-work skills,
-        with experience in Microsoft Word, data entry,
-        documentation, web-design and digital workflows.
-    </p>
-
-    <p>
-        I am interested in opportunities that combine my
-        healthcare background with digital technology,
-        data, remote work and professional development.
-    </p>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section id="skills">
-
-    <h2>
-        My Skills
-    </h2>
-
-    <div class="skills">
-
-        <div class="skill">
-            Radiography
-        </div>
-
-        <div class="skill">
-            CT Imaging
-        </div>
-
-        <div class="skill">
-            Digital Radiography
-        </div>
-
-        <div class="skill">
-            Data Entry
-        </div>
-
-        <div class="skill">
-            Microsoft Word
-        </div>
-
-        <div class="skill">
-            Documentation
-        </div>
-
-        <div class="skill">
-            Hausa-English Communication
-        </div>
-
-        <div class="skill">
-            Digital Skills
-        </div>
-
-        <div class="skill">
-            Remote Work
+        <div class="welcome-text">
+            WELCOME TO MY PAGE
         </div>
 
     </div>
 
-</section>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                Welcome to my professional page. I am Ahmad Shuaibu,
+                a Radiographer with experience in medical imaging,
+                digital skills, research, communication and remote work.
+            </p>
+
+            <p>
+                This website provides information about my professional
+                background, skills, qualifications, certificates and
+                selected documents in my archive.
+            </p>
+
+        </section>
 
 
-<!-- =========================
-     CV
-========================= -->
+        <!-- SKILLS -->
 
-<section>
+        <section id="skills">
 
-    <h2>
-        My CV
-    </h2>
+            <h2>Skills</h2>
 
-    <p>
-        Download my professional CV.
-    </p>
+            <ul class="skills-list">
 
-    <a
-        href="Ahmad-Shuaibu-CV.pdf"
-        class="button"
-        download>
+                <li>Hausa-English Communication</li>
 
-        Download My CV
+                <li>Language & Content Review</li>
 
-    </a>
+                <li>AI Annotation Readiness</li>
 
-</section>
+                <li>Instruction Following</li>
 
+                <li>Data Entry</li>
 
-<!-- =========================
-     MY ARCHIVE
-========================= -->
+                <li>Microsoft Word</li>
 
-<section id="archive">
+                <li>Online Research</li>
 
-    <h2>
-        My Archive
-    </h2>
+                <li>Attention to Detail</li>
 
-    <p class="archive-intro">
-        Welcome to my personal document archive.
-        This section contains selected professional
-        documents and resources.
-    </p>
+                <li>Remote Work</li>
+
+                <li>Confidentiality</li>
+
+            </ul>
+
+        </section>
 
 
-    <div class="archive-list">
+        <!-- CV -->
 
+        <section>
 
-        <div class="document">
+            <h2>My CV</h2>
 
-            <div class="document-info">
-
-                <div class="document-name">
-                    My CV
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
+            <p>
+                You can view or download my professional CV below.
+            </p>
 
             <a
+                class="cv-button"
                 href="Ahmad-Shuaibu-CV.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
+                target="_blank"
+            >
+                Download My CV
             </a>
 
-        </div>
+        </section>
 
 
-        <div class="document">
+        <!-- ARCHIVE -->
 
-            <div class="document-info">
+        <section id="archive">
 
-                <div class="document-name">
-                    PGC CT
-                </div>
+            <h2>My Archive</h2>
 
-                <div class="document-type">
-                    PDF Document
-                </div>
+            <p>
+                Selected professional documents and certificates:
+            </p>
+
+            <ul class="archive-list">
+
+                <li>
+                    <a href="Ahmad-Shuaibu-CV.pdf" target="_blank">
+                        📄 Ahmad Shuaibu CV
+                    </a>
+                </li>
+
+                <li>
+                    <a href="archive/PGC-CT.jpg" target="_blank">
+                        🖼️ PGC Computed Tomography Certificate
+                    </a>
+                </li>
+
+                <li>
+                    <a href="archive/PGC-USS.jpg" target="_blank">
+                        🖼️ PGC OBGYN Ultrasonography Certificate
+                    </a>
+                </li>
+
+                <li>
+                    <a href="archive/FDUC-cert.pdf" target="_blank">
+                        📄 FDUC Certificate
+                    </a>
+                </li>
+
+                <li>
+                    <a href="archive/document2.pdf" target="_blank">
+                        📄 Additional Professional Document
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <h2>Contact Me</h2>
+
+            <div class="contact-info">
+
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:dasap93@gmail.com">
+                        dasap93@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    Abuja, Nigeria
+                </p>
+
+                <p>
+                    <strong>WhatsApp:</strong>
+                    <a
+                        href="https://wa.me/2348031106283"
+                        target="_blank"
+                    >
+                        Contact me on WhatsApp
+                    </a>
+                </p>
 
             </div>
 
-            <a
-                href="archive/PGC-CT.jpg"
-                class="document-button"
-                target="_blank">
+        </section>
 
-                Open
-
-            </a>
-
-        </div>
+    </main>
 
 
-        <div class="document">
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-            <div class="document-info">
-
-                <div class="document-name">
-                    PGC Ultrasonography
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/PGC-USS.jpg"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    FDUC ultrasound certificate
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/FDUC-cert.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    Additional Document
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/document2.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section id="contact">
-
-    <h2>
-        Contact Me
-    </h2>
-
-    <div class="contact-info">
+    <footer>
 
         <p>
-            <strong>Email:</strong>
-            dasap93@gmail.com
+            © 2026 Ahmad Shuaibu. All rights reserved.
         </p>
 
-        <p>
-            <strong>Location:</strong>
-            Abuja, Nigeria
-        </p>
-
-    </div>
+    </footer>
 
 
-    <a
-        href="https://wa.me/2348031106283"
-        class="whatsapp-button"
-        target="_blank">
+    <!-- =========================
+         HAMBURGER JAVASCRIPT
+    ========================== -->
 
-        WhatsApp Me
+    <script>
 
-    </a>
+        const hamburgerButton =
+            document.getElementById("hamburgerButton");
 
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        &copy; 2026 Ahmad Shuaibu.
-        All Rights Reserved.
-    </p>
-
-    <p>
-        My Professional Website
-    </p>
-
-</footer>
+        const hamburgerDropdown =
+            document.getElementById("hamburgerDropdown");
 
 
-<!-- =========================
-     HAMBURGER JAVASCRIPT
-========================= -->
+        hamburgerButton.addEventListener("click", function(event) {
 
-<script>
+            event.stopPropagation();
 
-const hamburgerButton =
-    document.getElementById("hamburgerButton");
+            hamburgerDropdown.classList.toggle("show");
 
-const hamburgerDropdown =
-    document.getElementById("hamburgerDropdown");
+        });
 
 
-hamburgerButton.addEventListener("click", function(event) {
-
-    event.stopPropagation();
-
-    hamburgerDropdown.classList.toggle("show");
-
-    hamburgerButton.classList.toggle("active");
-
-});
+        const menuLinks =
+            hamburgerDropdown.querySelectorAll("a");
 
 
-/* Close when clicking a menu item */
+        menuLinks.forEach(function(link) {
 
-const menuLinks =
-    hamburgerDropdown.querySelectorAll("a");
+            link.addEventListener("click", function() {
 
-menuLinks.forEach(function(link) {
+                hamburgerDropdown.classList.remove("show");
 
-    link.addEventListener("click", function() {
+            });
 
-        hamburgerDropdown.classList.remove("show");
-
-        hamburgerButton.classList.remove("active");
-
-    });
-
-});
+        });
 
 
-/* Close when clicking outside */
+        document.addEventListener("click", function(event) {
 
-document.addEventListener("click", function(event) {
+            if (
+                !hamburgerButton.contains(event.target) &&
+                !hamburgerDropdown.contains(event.target)
+            ) {
 
-    if (
-        !hamburgerButton.contains(event.target) &&
-        !hamburgerDropdown.contains(event.target)
-    ) {
+                hamburgerDropdown.classList.remove("show");
 
-        hamburgerDropdown.classList.remove("show");
+            }
 
-        hamburgerButton.classList.remove("active");
+        });
 
-    }
-
-});
-
-</script>
-
+    </script>
 
 </body>
-
 </html>
