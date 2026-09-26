@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -10,10 +12,18 @@
 
     <style>
 
+        /* =========================
+           GENERAL
+        ========================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -23,13 +33,16 @@
             background: #f4f7fa;
         }
 
-        /* HEADER */
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #0b3d62;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 45px 20px;
         }
 
         .profile-photo {
@@ -42,7 +55,7 @@
         }
 
         header h1 {
-            font-size: 32px;
+            font-size: 34px;
             margin-bottom: 8px;
         }
 
@@ -51,19 +64,25 @@
         }
 
 
-        /* NAVIGATION */
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             background: #082f49;
             text-align: center;
-            padding: 12px;
+            padding: 14px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 10px;
             font-weight: bold;
+            display: inline-block;
         }
 
         nav a:hover {
@@ -71,24 +90,33 @@
         }
 
 
-        /* SECTIONS */
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             max-width: 900px;
             margin: 30px auto;
-            padding: 30px 20px;
+            padding: 30px 25px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         section h2 {
             color: #0b3d62;
             margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        section p {
+            margin-bottom: 10px;
         }
 
 
-        /* SKILLS */
+        /* =========================
+           SKILLS
+        ========================= */
 
         .skills {
             display: grid;
@@ -101,21 +129,23 @@
 
         .skill {
             background: #eaf3f8;
-            padding: 15px;
+            padding: 16px;
             text-align: center;
             border-radius: 8px;
             font-weight: bold;
         }
 
 
-        /* BUTTONS */
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .button {
             display: inline-block;
             background: #0b3d62;
             color: white;
             padding: 12px 20px;
-            margin-top: 15px;
+            margin-top: 10px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
@@ -126,15 +156,17 @@
         }
 
 
-        /* WHATSAPP BUTTON */
+        /* =========================
+           WHATSAPP
+        ========================= */
 
         .whatsapp-button {
             display: inline-block;
             background: #25D366;
             color: white;
             padding: 12px 20px;
-            margin-top: 15px;
-            margin-left: 10px;
+            margin-top: 10px;
+            margin-left: 8px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
@@ -145,7 +177,64 @@
         }
 
 
-        /* CONTACT */
+        /* =========================
+           ARCHIVE
+        ========================= */
+
+        .archive-intro {
+            margin-bottom: 20px;
+        }
+
+        .archive-list {
+            margin-top: 20px;
+        }
+
+        .document {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #eef5f9;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 5px solid #0b3d62;
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-name {
+            font-weight: bold;
+            color: #0b3d62;
+            font-size: 17px;
+        }
+
+        .document-type {
+            font-size: 13px;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        .document-button {
+            background: #0b3d62;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        .document-button:hover {
+            background: #082f49;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-info {
             margin-top: 15px;
@@ -156,58 +245,100 @@
         }
 
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #082f49;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px 15px;
             margin-top: 40px;
         }
 
 
-        /* MOBILE RESPONSIVE DESIGN */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
 
+            header {
+                padding: 35px 15px;
+            }
+
             header h1 {
-                font-size: 26px;
+                font-size: 27px;
             }
 
             header p {
                 font-size: 16px;
             }
 
+            .profile-photo {
+                width: 125px;
+                height: 125px;
+            }
+
+            nav {
+                padding: 10px 5px;
+            }
+
             nav a {
-                display: inline-block;
-                margin: 5px 8px;
+                margin: 5px 6px;
+                font-size: 14px;
             }
 
             section {
                 margin: 20px 10px;
-                padding: 25px 15px;
+                padding: 25px 18px;
             }
 
-            .profile-photo {
-                width: 120px;
-                height: 120px;
+            section h2 {
+                font-size: 23px;
+            }
+
+            .skills {
+                grid-template-columns:
+                    repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .skill {
+                padding: 12px 8px;
+                font-size: 14px;
             }
 
             .whatsapp-button {
                 margin-left: 0;
             }
 
+            .document {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .document-button {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- HEADER -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <header>
 
@@ -224,55 +355,72 @@
     </header>
 
 
-    <!-- NAVIGATION -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <nav>
 
-        <a href="#about">About</a>
+        <a href="#about">
+            About
+        </a>
 
-        <a href="#skills">Skills</a>
+        <a href="#skills">
+            Skills
+        </a>
 
-        <a href="#contact">Contact</a>
+        <a href="#archive">
+            My Archive
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
 
     </nav>
 
 
-    <!-- ABOUT SECTION -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
     <section id="about">
 
-        <h2>About Me</h2>
+        <h2>
+            About Me
+        </h2>
 
         <p>
-            I am a qualified Radiographer with professional experience
-            in diagnostic imaging, including Digital Radiography,
-            Conventional Radiography and Computed Tomography.
+            I am a qualified Radiographer with professional
+            experience in diagnostic imaging, including Digital
+            Radiography, Conventional Radiography and Computed
+            Tomography.
         </p>
-
-        <br>
 
         <p>
             I am also developing my digital and remote-work skills,
-            with experience in Microsoft Word, data entry, documentation,
-            research and digital workflows.
+            with experience in Microsoft Word, data entry,
+            documentation, research and digital workflows.
         </p>
 
-        <br>
-
         <p>
-            I am interested in opportunities that combine my healthcare
-            background with digital technology, data, remote work and
-            professional development.
+            I am interested in opportunities that combine my
+            healthcare background with digital technology,
+            data, remote work and professional development.
         </p>
 
     </section>
 
 
-    <!-- SKILLS SECTION -->
+    <!-- =========================
+         SKILLS
+    ========================== -->
 
     <section id="skills">
 
-        <h2>My Skills</h2>
+        <h2>
+            My Skills
+        </h2>
 
         <div class="skills">
 
@@ -321,14 +469,18 @@
     </section>
 
 
-    <!-- CV SECTION -->
+    <!-- =========================
+         CV
+    ========================== -->
 
     <section>
 
-        <h2>My CV</h2>
+        <h2>
+            My CV
+        </h2>
 
         <p>
-            You can download my professional CV below.
+            Download my professional CV.
         </p>
 
         <a href="Ahmad-Shuaibu-CV.docx"
@@ -342,11 +494,175 @@
     </section>
 
 
-    <!-- CONTACT SECTION -->
+    <!-- =========================
+         MY ARCHIVE
+    ========================== -->
+
+    <section id="archive">
+
+        <h2>
+            My Archive
+        </h2>
+
+        <p class="archive-intro">
+            Welcome to my personal document archive.
+            This section contains selected professional
+            documents and resources.
+        </p>
+
+
+        <div class="archive-list">
+
+
+            <!-- DOCUMENT 1 -->
+
+            <div class="document">
+
+                <div class="document-info">
+
+                    <div class="document-name">
+                        My CV
+                    </div>
+
+                    <div class="document-type">
+                        PDF Document
+                    </div>
+
+                </div>
+
+                <a href="Ahmad-Shuaibu-CV.pdf"
+                   class="document-button"
+                   target="_blank">
+
+                    Open
+
+                </a>
+
+            </div>
+
+
+            <!-- DOCUMENT 2 -->
+
+            <div class="document">
+
+                <div class="document-info">
+
+                    <div class="document-name">
+                        Professional Certificate 1
+                    </div>
+
+                    <div class="document-type">
+                        PDF Document
+                    </div>
+
+                </div>
+
+                <a href="archive/certificate1.pdf"
+                   class="document-button"
+                   target="_blank">
+
+                    Open
+
+                </a>
+
+            </div>
+
+
+            <!-- DOCUMENT 3 -->
+
+            <div class="document">
+
+                <div class="document-info">
+
+                    <div class="document-name">
+                        Professional Certificate 2
+                    </div>
+
+                    <div class="document-type">
+                        PDF Document
+                    </div>
+
+                </div>
+
+                <a href="archive/certificate2.pdf"
+                   class="document-button"
+                   target="_blank">
+
+                    Open
+
+                </a>
+
+            </div>
+
+
+            <!-- DOCUMENT 4 -->
+
+            <div class="document">
+
+                <div class="document-info">
+
+                    <div class="document-name">
+                        Professional Document
+                    </div>
+
+                    <div class="document-type">
+                        PDF Document
+                    </div>
+
+                </div>
+
+                <a href="archive/document1.pdf"
+                   class="document-button"
+                   target="_blank">
+
+                    Open
+
+                </a>
+
+            </div>
+
+
+            <!-- DOCUMENT 5 -->
+
+            <div class="document">
+
+                <div class="document-info">
+
+                    <div class="document-name">
+                        Additional Document
+                    </div>
+
+                    <div class="document-type">
+                        PDF Document
+                    </div>
+
+                </div>
+
+                <a href="archive/document2.pdf"
+                   class="document-button"
+                   target="_blank">
+
+                    Open
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
     <section id="contact">
 
-        <h2>Contact Me</h2>
+        <h2>
+            Contact Me
+        </h2>
 
         <div class="contact-info">
 
@@ -363,7 +679,7 @@
         </div>
 
 
-        <!-- WHATSAPP BUTTON -->
+        <!-- WHATSAPP -->
 
         <a href="https://wa.me/2348031106283"
            class="whatsapp-button"
@@ -376,16 +692,24 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
         <p>
-            &copy; 2026 Ahmad Shuaibu. All Rights Reserved.
+            &copy; 2026 Ahmad Shuaibu.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            My Professional Website
         </p>
 
     </footer>
 
 
 </body>
+
 </html>
