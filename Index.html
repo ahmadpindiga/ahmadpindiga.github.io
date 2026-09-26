@@ -1,10 +1,391 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ahmad Pindiga</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ahmad Shuaibu | Professional Profile</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f7fa;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #0b3d62;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background: #082f49;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #25D366;
+        }
+
+
+        /* SECTIONS */
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #0b3d62;
+            margin-bottom: 15px;
+        }
+
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: #eaf3f8;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+
+        /* BUTTONS */
+
+        .button {
+            display: inline-block;
+            background: #0b3d62;
+            color: white;
+            padding: 12px 20px;
+            margin-top: 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #082f49;
+        }
+
+
+        /* WHATSAPP BUTTON */
+
+        .whatsapp-button {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            margin-top: 15px;
+            margin-left: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .whatsapp-button:hover {
+            background: #128C7E;
+        }
+
+
+        /* CONTACT */
+
+        .contact-info {
+            margin-top: 15px;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #082f49;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+
+        /* MOBILE RESPONSIVE DESIGN */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            section {
+                margin: 20px 10px;
+                padding: 25px 15px;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .whatsapp-button {
+                margin-left: 0;
+            }
+
+        }
+
+    </style>
 </head>
+
+
 <body>
-    <h1>My website is working!</h1>
-    <p>GitHub Pages is successfully connected.</p>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <img src="profile.jpg"
+             alt="Ahmad Shuaibu"
+             class="profile-photo">
+
+        <h1>Ahmad Shuaibu</h1>
+
+        <p>
+            Radiographer | Digital Skills | Remote Work Professional
+        </p>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            I am a qualified Radiographer with professional experience
+            in diagnostic imaging, including Digital Radiography,
+            Conventional Radiography and Computed Tomography.
+        </p>
+
+        <br>
+
+        <p>
+            I am also developing my digital and remote-work skills,
+            with experience in Microsoft Word, data entry, documentation,
+            research and digital workflows.
+        </p>
+
+        <br>
+
+        <p>
+            I am interested in opportunities that combine my healthcare
+            background with digital technology, data, remote work and
+            professional development.
+        </p>
+
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+
+    <section id="skills">
+
+        <h2>My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                Radiography
+            </div>
+
+            <div class="skill">
+                CT Imaging
+            </div>
+
+            <div class="skill">
+                Digital Radiography
+            </div>
+
+            <div class="skill">
+                Data Entry
+            </div>
+
+            <div class="skill">
+                Microsoft Word
+            </div>
+
+            <div class="skill">
+                Research
+            </div>
+
+            <div class="skill">
+                Documentation
+            </div>
+
+            <div class="skill">
+                Hausa-English Communication
+            </div>
+
+            <div class="skill">
+                Digital Skills
+            </div>
+
+            <div class="skill">
+                Remote Work
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CV SECTION -->
+
+    <section>
+
+        <h2>My CV</h2>
+
+        <p>
+            You can download my professional CV below.
+        </p>
+
+        <a href="Ahmad-Shuaibu-CV.docx"
+           class="button"
+           download>
+
+            Download My CV
+
+        </a>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-info">
+
+            <p>
+                <strong>Email:</strong>
+                dasap93@gmail.com
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Abuja, Nigeria
+            </p>
+
+        </div>
+
+
+        <!-- WHATSAPP BUTTON -->
+
+        <a href="https://wa.me/2348031106283"
+           class="whatsapp-button"
+           target="_blank">
+
+            WhatsApp Me
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Ahmad Shuaibu. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
 </body>
 </html>
