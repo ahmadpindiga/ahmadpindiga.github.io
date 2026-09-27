@@ -1,325 +1,932 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Family Story | Four Generations</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
 
-  <link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ahmad Shuaibu | Professional Profile</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f7fa;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #0b3d62;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+
+/* =========================
+   EXISTING NAVIGATION
+========================= */
+
+nav {
+    background: #082f49;
+    text-align: center;
+    padding: 14px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #25D366;
+}
+
+
+/* =================================================
+   HAMBURGER MENU
+================================================= */
+
+.hamburger-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+}
+
+
+/* Three-line button */
+
+.hamburger-button {
+    width: 50px;
+    height: 50px;
+
+    background: white;
+    border: 2px solid #082f49;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+
+/* Three lines */
+
+.hamburger-button span {
+    width: 27px;
+    height: 3px;
+
+    background: #082f49;
+
+    display: block;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
+}
+
+
+/* Change to X */
+
+.hamburger-button.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Dropdown */
+
+.hamburger-dropdown {
+    position: absolute;
+
+    top: 60px;
+    right: 0;
+
+    width: 190px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    overflow: hidden;
+
+    display: none;
+}
+
+
+/* Display dropdown */
+
+.hamburger-dropdown.show {
+    display: block;
+}
+
+
+/* Dropdown links */
+
+.hamburger-dropdown a {
+    display: block;
+
+    padding: 15px 18px;
+
+    color: #082f49;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.hamburger-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.hamburger-dropdown a:hover {
+    background: #eaf3f8;
+    color: #0b3d62;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+section h2 {
+    color: #0b3d62;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill {
+    background: #eaf3f8;
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button {
+    display: inline-block;
+    background: #0b3d62;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #082f49;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-button {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-left: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-button:hover {
+    background: #128C7E;
+}
+
+
+/* =========================
+   ARCHIVE
+========================= */
+
+.archive-intro {
+    margin-bottom: 20px;
+}
+
+.archive-list {
+    margin-top: 20px;
+}
+
+.document {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eef5f9;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border-left: 5px solid #0b3d62;
+}
+
+.document-info {
+    flex: 1;
+}
+
+.document-name {
+    font-weight: bold;
+    color: #0b3d62;
+    font-size: 17px;
+}
+
+.document-type {
+    font-size: 13px;
+    color: #666;
+    margin-top: 3px;
+}
+
+.document-button {
+    background: #0b3d62;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.document-button:hover {
+    background: #082f49;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-info {
+    margin-top: 15px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #082f49;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 40px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 35px 15px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .profile-photo {
+        width: 125px;
+        height: 125px;
+    }
+
+    nav {
+        padding: 10px 5px;
+    }
+
+    nav a {
+        margin: 5px 6px;
+        font-size: 14px;
+    }
+
+    section {
+        margin: 20px 10px;
+        padding: 25px 18px;
+    }
+
+    section h2 {
+        font-size: 23px;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .skill {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    .whatsapp-button {
+        margin-left: 0;
+    }
+
+    .document {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .document-button {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hamburger-container {
+        top: 12px;
+        right: 12px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<header class="site-header">
 
-  <a class="brand" href="#home">
-    <span class="brand-mark">✦</span>
-    <span>
-      <strong>Our Family</strong>
-      <small>Four Generations</small>
-    </span>
-  </a>
+<!-- =========================
+     HEADER
+========================= -->
 
-  <button class="menu-toggle" id="menuToggle">☰</button>
+<header>
 
-  <nav id="mainNav">
-    <a href="#home">Home</a>
-    <a href="#tree">Family Tree</a>
-    <a href="#members">Family Members</a>
-    <a href="#gallery">Photo Gallery</a>
-    <a href="#timeline">Timeline</a>
-    <a href="#about">About Our Family</a>
-    <button class="admin-btn" id="adminBtn">Admin</button>
-  </nav>
+    <!-- HAMBURGER BUTTON -->
+
+    <div class="hamburger-container">
+
+        <button
+            class="hamburger-button"
+            id="hamburgerButton"
+            type="button"
+            aria-label="Open menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <!-- DROPDOWN -->
+
+        <div
+            class="hamburger-dropdown"
+            id="hamburgerDropdown">
+
+            <a href="#about">About</a>
+
+            <a href="#archive">My Archive</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </div>
+
+
+    <img
+        src="profile.jpg"
+        alt="Ahmad Shuaibu"
+        class="profile-photo">
+
+
+    <h1>
+        Ahmad Shuaibu
+    </h1>
+
+
+    <p>
+        Radiographer | Digital Skills | Remote Work Professional
+    </p>
 
 </header>
 
-<main>
 
-<!-- HOME -->
-<section id="home" class="page active">
+<!-- =========================
+     EXISTING NAVIGATION
+========================= -->
 
-  <div class="hero">
+<nav>
 
-    <div class="hero-copy">
+    <a href="#about">
+        About
+    </a>
 
-      <span class="eyebrow">A Living Family Archive</span>
+    <a href="#skills">
+        Skills
+    </a>
 
-      <h1>
-        Our Family
-        <br>
-        <em>Story</em>
-      </h1>
+    <a href="#archive">
+        My Archive
+    </a>
 
-      <p>Four Generations • One Family • One Story</p>
+    <a href="#contact">
+        Contact
+    </a>
 
-      <div class="hero-actions">
+</nav>
 
-        <a class="btn primary" href="#tree">
-          Explore Family Tree
-        </a>
 
-        <a class="btn ghost" href="#gallery">
-          View Family Gallery
-        </a>
+<!-- =========================
+     ABOUT
+========================= -->
 
-      </div>
+<section id="about">
 
-    </div>
-
-    <div class="hero-photo">
-
-      <div class="hero-photo-overlay">
-        <span>Preserving memories</span>
-        <strong>Then, now & always.</strong>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="stats" id="stats"></div>
-
-  <div class="quote-card">
-
-    <span>“</span>
+    <h2>
+        About Me
+    </h2>
 
     <p>
-      A family is one of nature's greatest masterpieces.
+        I am a qualified Radiographer with professional
+        experience in diagnostic imaging, including Digital
+        Radiography, ultrasonography and Computed
+        Tomography.
     </p>
 
-  </div>
+    <p>
+        I am also developing my digital and remote-work skills,
+        with experience in Microsoft Word, data entry,
+        documentation, web-design and digital workflows.
+    </p>
+
+    <p>
+        I am interested in opportunities that combine my
+        healthcare background with digital technology,
+        data, remote work and professional development.
+    </p>
 
 </section>
 
 
-<!-- FAMILY TREE -->
-<section id="tree" class="page">
+<!-- =========================
+     SKILLS
+========================= -->
 
-  <div class="section-heading">
+<section id="skills">
 
-    <div>
-      <span class="eyebrow">Generations</span>
-      <h2>Our Family Tree</h2>
+    <h2>
+        My Skills
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            Radiography
+        </div>
+
+        <div class="skill">
+            CT Imaging
+        </div>
+
+        <div class="skill">
+            Digital Radiography
+        </div>
+
+        <div class="skill">
+            Data Entry
+        </div>
+
+        <div class="skill">
+            Microsoft Word
+        </div>
+
+        <div class="skill">
+            Documentation
+        </div>
+
+        <div class="skill">
+            Hausa-English Communication
+        </div>
+
+        <div class="skill">
+            Digital Skills
+        </div>
+
+        <div class="skill">
+            Remote Work
+        </div>
+
     </div>
-
-    <div class="tree-controls">
-
-      <button class="icon-btn" id="zoomOut">−</button>
-
-      <span id="zoomValue">100%</span>
-
-      <button class="icon-btn" id="zoomIn">+</button>
-
-      <button class="btn small" id="resetZoom">
-        Reset
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="tree-help">
-    Scroll horizontally on smaller screens.
-    Click any person to view their story.
-  </div>
-
-  <div class="tree-viewport">
-
-    <div class="tree-canvas" id="treeCanvas"></div>
-
-  </div>
 
 </section>
 
 
-<!-- FAMILY MEMBERS -->
-<section id="members" class="page">
+<!-- =========================
+     CV
+========================= -->
 
-  <div class="section-heading">
+<section>
 
-    <div>
-      <span class="eyebrow">People</span>
-      <h2>Family Members</h2>
-    </div>
+    <h2>
+        My CV
+    </h2>
 
-    <div class="search-wrap">
+    <p>
+        Download my professional CV.
+    </p>
 
-      <input
-        id="memberSearch"
-        placeholder="Search family members..."
-      >
+    <a
+        href="Ahmad-Shuaibu-CV.pdf"
+        class="button"
+        download>
 
-      <span>⌕</span>
+        Download My CV
 
-    </div>
-
-  </div>
-
-  <div class="member-grid" id="memberGrid"></div>
+    </a>
 
 </section>
 
 
-<!-- GALLERY -->
-<section id="gallery" class="page">
+<!-- =========================
+     MY ARCHIVE
+========================= -->
 
-  <div class="section-heading">
+<section id="archive">
 
-    <div>
-      <span class="eyebrow">Memories</span>
-      <h2>Family Gallery</h2>
+    <h2>
+        My Archive
+    </h2>
+
+    <p class="archive-intro">
+        Welcome to my personal document archive.
+        This section contains selected professional
+        documents and resources.
+    </p>
+
+
+    <div class="archive-list">
+
+
+        <div class="document">
+
+            <div class="document-info">
+
+                <div class="document-name">
+                    My CV
+                </div>
+
+                <div class="document-type">
+                    PDF Document
+                </div>
+
+            </div>
+
+            <a
+                href="Ahmad-Shuaibu-CV.pdf"
+                class="document-button"
+                target="_blank">
+
+                Open
+
+            </a>
+
+        </div>
+
+
+        <div class="document">
+
+            <div class="document-info">
+
+                <div class="document-name">
+                    PGC CT
+                </div>
+
+                <div class="document-type">
+                    PDF Document
+                </div>
+
+            </div>
+
+            <a
+                href="archive/PGC-CT.jpg"
+                class="document-button"
+                target="_blank">
+
+                Open
+
+            </a>
+
+        </div>
+
+
+        <div class="document">
+
+            <div class="document-info">
+
+                <div class="document-name">
+                    PGC Ultrasonography
+                </div>
+
+                <div class="document-type">
+                    PDF Document
+                </div>
+
+            </div>
+
+            <a
+                href="archive/PGC-USS.jpg"
+                class="document-button"
+                target="_blank">
+
+                Open
+
+            </a>
+
+        </div>
+
+
+        <div class="document">
+
+            <div class="document-info">
+
+                <div class="document-name">
+                    FDUC ultrasound certificate
+                </div>
+
+                <div class="document-type">
+                    PDF Document
+                </div>
+
+            </div>
+
+            <a
+                href="archive/FDUC-cert.pdf"
+                class="document-button"
+                target="_blank">
+
+                Open
+
+            </a>
+
+        </div>
+
+
+        <div class="document">
+
+            <div class="document-info">
+
+                <div class="document-name">
+                    Additional Document
+                </div>
+
+                <div class="document-type">
+                    PDF Document
+                </div>
+
+            </div>
+
+            <a
+                href="archive/document2.pdf"
+                class="document-button"
+                target="_blank">
+
+                Open
+
+            </a>
+
+        </div>
+
+
     </div>
-
-    <button
-      class="btn primary admin-only"
-      id="galleryUploadBtn">
-      Upload Photo
-    </button>
-
-  </div>
-
-  <div class="filter-row" id="galleryFilters"></div>
-
-  <div class="gallery-grid" id="galleryGrid"></div>
 
 </section>
 
 
-<!-- TIMELINE -->
-<section id="timeline" class="page">
+<!-- =========================
+     CONTACT
+========================= -->
 
-  <div class="section-heading">
+<section id="contact">
 
-    <div>
-      <span class="eyebrow">Our Journey</span>
-      <h2>Family Timeline</h2>
+    <h2>
+        Contact Me
+    </h2>
+
+    <div class="contact-info">
+
+        <p>
+            <strong>Email:</strong>
+            dasap93@gmail.com
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            Abuja, Nigeria
+        </p>
+
     </div>
 
-    <button
-      class="btn primary admin-only"
-      id="addEventBtn">
-      Add Event
-    </button>
 
-  </div>
+    <a
+        href="https://wa.me/2348031106283"
+        class="whatsapp-button"
+        target="_blank">
 
-  <div class="timeline" id="timelineList"></div>
+        WhatsApp Me
+
+    </a>
 
 </section>
 
 
-<!-- ABOUT -->
-<section id="about" class="page">
-
-  <div class="about-layout">
-
-    <div>
-
-      <span class="eyebrow">Our Roots</span>
-
-      <h2>About Our Family</h2>
-
-      <p class="lead">
-        This space is more than a family tree.
-        It is a place to preserve the names, faces,
-        stories and memories that connect us across generations.
-      </p>
-
-      <p>
-        Edit this section to tell your family's story,
-        traditions, origins, values and important memories.
-      </p>
-
-    </div>
-
-    <div class="about-card">
-
-      <span class="about-icon">❦</span>
-
-      <h3>Four Generations</h3>
-
-      <p>
-        From the people who came before us to the youngest
-        members of the family, every branch belongs to the same story.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- PROFILE MODAL -->
-<div class="modal" id="profileModal">
-
-  <div class="modal-card profile-modal">
-
-    <button class="modal-close" data-close>×</button>
-
-    <div id="profileContent"></div>
-
-  </div>
-
-</div>
-
-
-<!-- ADMIN MODAL -->
-<div class="modal" id="adminModal">
-
-  <div class="modal-card">
-
-    <button class="modal-close" data-close>×</button>
-
-    <div id="adminContent"></div>
-
-  </div>
-
-</div>
-
-
-<!-- GALLERY MODAL -->
-<div class="modal" id="galleryModal">
-
-  <div class="modal-card gallery-modal">
-
-    <button class="modal-close" data-close>×</button>
-
-    <div id="galleryContent"></div>
-
-  </div>
-
-</div>
-
-
-<input
-  type="file"
-  id="hiddenPhotoInput"
-  accept="image/*"
-  hidden
->
-
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-  <p>
-    Made with love for the family •
-    <span id="footerYear"></span>
-  </p>
+    <p>
+        &copy; 2026 Ahmad Shuaibu.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        My Professional Website
+    </p>
 
 </footer>
 
 
-<script src="app.js"></script>
+<!-- =========================
+     HAMBURGER JAVASCRIPT
+========================= -->
+
+<script>
+
+const hamburgerButton =
+    document.getElementById("hamburgerButton");
+
+const hamburgerDropdown =
+    document.getElementById("hamburgerDropdown");
+
+
+hamburgerButton.addEventListener("click", function(event) {
+
+    event.stopPropagation();
+
+    hamburgerDropdown.classList.toggle("show");
+
+    hamburgerButton.classList.toggle("active");
+
+});
+
+
+/* Close when clicking a menu item */
+
+const menuLinks =
+    hamburgerDropdown.querySelectorAll("a");
+
+menuLinks.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        hamburgerDropdown.classList.remove("show");
+
+        hamburgerButton.classList.remove("active");
+
+    });
+
+});
+
+
+/* Close when clicking outside */
+
+document.addEventListener("click", function(event) {
+
+    if (
+        !hamburgerButton.contains(event.target) &&
+        !hamburgerDropdown.contains(event.target)
+    ) {
+
+        hamburgerDropdown.classList.remove("show");
+
+        hamburgerButton.classList.remove("active");
+
+    }
+
+});
+
+</script>
+
 
 </body>
+
 </html>
-```
