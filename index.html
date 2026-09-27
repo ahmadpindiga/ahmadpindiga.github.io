@@ -1,309 +1,325 @@
-Build a beautiful, modern, responsive FAMILY TREE WEBSITE for a family with 4 generations.
-
-The website should be designed as a digital family history/memorial website where family members can view relationships, names, photos, dates, and short biographies.
-
-MAIN REQUIREMENTS:
-
-1. FAMILY TREE
-- Create an interactive family tree covering 4 generations.
-- The generations should be clearly separated:
-  Generation 1: Great-grandparents
-  Generation 2: Grandparents
-  Generation 3: Parents, uncles, aunts
-  Generation 4: Children and grandchildren
-- Display each person as a profile card.
-- Each profile card should contain:
-  - Profile picture
-  - Full name
-  - Date of birth
-  - Date of death (if applicable)
-  - Spouse
-  - Relationship/title
-  - Short biography
-- Connect family members with clear visual lines showing:
-  - Parent-child relationships
-  - Marriage/spouse relationships
-  - Sibling relationships
-
-2. INTERACTIVE FAMILY TREE
-- Make the family tree horizontally scrollable on smaller screens.
-- Allow users to zoom in and out.
-- Allow users to click on a person to open a larger profile.
-- Add smooth animations when opening profiles.
-- Include a "Home/Overview" button that returns the user to the complete family tree.
-- Make the tree easy to understand even when there are many family members.
-
-3. PHOTO UPLOAD FUNCTION
-Create a photo upload feature for family members.
-
-Each person should have:
-- An "Upload Photo" button
-- Ability to select an image from the device
-- Image preview before saving
-- Ability to replace an existing photo
-- Ability to remove a photo
-- Automatically crop/resize photos so profile pictures have a consistent appearance.
-
-IMPORTANT:
-Do not make the upload feature only visual. Structure the application so uploaded images can actually be stored and associated with the correct family member.
-
-If a backend is required, use:
-- Firebase Storage for images
-- Firebase Firestore for family-member information
-
-If Firebase is not available, create a clearly separated frontend version using localStorage as a temporary solution and explain where Firebase can later be connected.
-
-4. ADD FAMILY MEMBER
-Create an "Add Family Member" form.
-
-Fields:
-- Full name
-- Gender
-- Date of birth
-- Date of death
-- Relationship
-- Generation
-- Spouse
-- Father
-- Mother
-- Biography
-- Profile picture
-
-After submitting, the new person should appear in the correct position in the family tree.
-
-5. EDIT FAMILY MEMBER
-Allow an authorized user/admin to:
-- Edit name
-- Edit dates
-- Edit biography
-- Change relationships
-- Replace profile picture
-- Delete a family member
-
-Before deleting a person, display a confirmation message.
-
-6. FAMILY PHOTO GALLERY
-Create a separate "Family Gallery" page.
-
-Features:
-- Upload family photographs
-- Display photos in a beautiful responsive grid
-- Clicking a photo opens it in a larger lightbox
-- Show caption/date if available
-- Allow admin to delete photos
-- Organize photos by:
-  - Family events
-  - Weddings
-  - Birthdays
-  - Reunions
-  - Old family photos
-  - Memorials
-  - Other
-
-7. PERSON PROFILE PAGE
-When a family member is clicked, show a detailed profile page containing:
-- Large profile picture
-- Full name
-- Family relationship
-- Birth/death information
-- Biography
-- Parents
-- Spouse
-- Children
-- Siblings
-- Photos
-- A small family-tree section showing where that person belongs in the family.
-
-8. FAMILY TIMELINE
-Create a timeline showing important family events.
-
-Examples:
-- Births
-- Marriages
-- Graduations
-- Relocations
-- Family reunions
-- Important achievements
-- Deaths/memorials
-
-Each event should have:
-- Date
-- Title
-- Description
-- Optional photograph
-
-9. DESIGN
-Use a warm, elegant family-history design.
-
-Suggested style:
-- Cream/white background
-- Gold or dark green accents
-- Elegant typography
-- Soft shadows
-- Rounded profile cards
-- Subtle animations
-- Large family photographs
-- Clean modern layout
-
-The website should feel like a combination of:
-- A family archive
-- A digital family tree
-- A photo album
-- A family history book
-
-10. NAVIGATION
-
-Create a navigation bar containing:
-
-HOME
-FAMILY TREE
-FAMILY MEMBERS
-PHOTO GALLERY
-TIMELINE
-ABOUT OUR FAMILY
-
-On mobile, convert the navigation into a hamburger menu.
-
-11. HOME PAGE
-
-The homepage should contain:
-
-Hero section:
-"OUR FAMILY STORY"
-
-Subtitle:
-"Four Generations • One Family • One Story"
-
-Display a large family photograph.
-
-Include buttons:
-"EXPLORE FAMILY TREE"
-"VIEW FAMILY GALLERY"
-
-Below the hero section show:
-- Number of generations
-- Number of family members
-- Number of family photos
-- Important family quote
-
-12. SEARCH
-
-Add a search box that allows users to search for family members by:
-- Name
-- Relationship
-- Generation
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Family Story | Four Generations</title>
 
-13. RESPONSIVE DESIGN
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-The website must work properly on:
-- Desktop
-- Laptop
-- Tablet
-- Android phones
-- iPhones
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-The family tree should remain usable on small screens.
-
-14. ADMIN AREA
+<body>
 
-Create a simple admin dashboard where the family administrator can:
-- Add family members
-- Edit family members
-- Delete family members
-- Upload photos
-- Manage gallery
-- Add timeline events
+<header class="site-header">
 
-Protect the admin area with authentication.
+  <a class="brand" href="#home">
+    <span class="brand-mark">✦</span>
+    <span>
+      <strong>Our Family</strong>
+      <small>Four Generations</small>
+    </span>
+  </a>
 
-15. DATA STRUCTURE
+  <button class="menu-toggle" id="menuToggle">☰</button>
 
-Structure the family-member data so that relationships are stored using unique IDs rather than only names.
+  <nav id="mainNav">
+    <a href="#home">Home</a>
+    <a href="#tree">Family Tree</a>
+    <a href="#members">Family Members</a>
+    <a href="#gallery">Photo Gallery</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#about">About Our Family</a>
+    <button class="admin-btn" id="adminBtn">Admin</button>
+  </nav>
 
-For example:
+</header>
 
-{
-  id: "person001",
-  name: "John Doe",
-  gender: "male",
-  birthDate: "1940-05-12",
-  deathDate: "",
-  photo: "",
-  fatherId: "",
-  motherId: "",
-  spouseIds: [],
-  childrenIds: [],
-  generation: 1,
-  biography: ""
-}
+<main>
 
-This should make it possible to dynamically generate the family tree.
+<!-- HOME -->
+<section id="home" class="page active">
 
-16. TECHNICAL REQUIREMENTS
+  <div class="hero">
 
-Use:
-- HTML5
-- CSS3
-- JavaScript
+    <div class="hero-copy">
 
-If a framework is appropriate, React can be used.
+      <span class="eyebrow">A Living Family Archive</span>
 
-Use clean, well-organized code.
+      <h1>
+        Our Family
+        <br>
+        <em>Story</em>
+      </h1>
 
-Separate:
-- HTML/components
-- CSS
-- JavaScript/data
-- Firebase configuration
+      <p>Four Generations • One Family • One Story</p>
 
-Do not put everything into one huge file unless necessary.
+      <div class="hero-actions">
 
-17. SAMPLE FAMILY DATA
+        <a class="btn primary" href="#tree">
+          Explore Family Tree
+        </a>
 
-Create realistic placeholder data for 4 generations so that I can immediately see how the website works.
+        <a class="btn ghost" href="#gallery">
+          View Family Gallery
+        </a>
 
-Use names such as:
+      </div>
 
-Generation 1:
-Great-grandfather
-Great-grandmother
+    </div>
 
-Generation 2:
-Grandfather
-Grandmother
-Their siblings
+    <div class="hero-photo">
 
-Generation 3:
-Father
-Mother
-Uncles
-Aunts
+      <div class="hero-photo-overlay">
+        <span>Preserving memories</span>
+        <strong>Then, now & always.</strong>
+      </div>
 
-Generation 4:
-Children
-Cousins
+    </div>
 
-Clearly label all sample information as placeholder data so it can easily be replaced with my real family information.
+  </div>
 
-18. IMPORTANT USER EXPERIENCE REQUIREMENT
+  <div class="stats" id="stats"></div>
 
-The website must be easy for a non-technical family administrator to maintain.
+  <div class="quote-card">
 
-I should be able to add a new family member without editing the source code.
+    <span>“</span>
 
-I should also be able to upload photographs directly from the website.
+    <p>
+      A family is one of nature's greatest masterpieces.
+    </p>
 
-19. FINAL OUTPUT
+  </div>
 
-Provide:
-- Complete working source code
-- All HTML/CSS/JavaScript files
-- Firebase setup instructions if Firebase is used
-- Database structure
-- Instructions for deploying the website
-- Instructions for adding the first 4 generations
-- Instructions for creating the admin account
+</section>
 
-Make sure there are no broken buttons or placeholder functions pretending to work.
 
-The final website should look professional enough to be used as a real family archive.
+<!-- FAMILY TREE -->
+<section id="tree" class="page">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="eyebrow">Generations</span>
+      <h2>Our Family Tree</h2>
+    </div>
+
+    <div class="tree-controls">
+
+      <button class="icon-btn" id="zoomOut">−</button>
+
+      <span id="zoomValue">100%</span>
+
+      <button class="icon-btn" id="zoomIn">+</button>
+
+      <button class="btn small" id="resetZoom">
+        Reset
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="tree-help">
+    Scroll horizontally on smaller screens.
+    Click any person to view their story.
+  </div>
+
+  <div class="tree-viewport">
+
+    <div class="tree-canvas" id="treeCanvas"></div>
+
+  </div>
+
+</section>
+
+
+<!-- FAMILY MEMBERS -->
+<section id="members" class="page">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="eyebrow">People</span>
+      <h2>Family Members</h2>
+    </div>
+
+    <div class="search-wrap">
+
+      <input
+        id="memberSearch"
+        placeholder="Search family members..."
+      >
+
+      <span>⌕</span>
+
+    </div>
+
+  </div>
+
+  <div class="member-grid" id="memberGrid"></div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery" class="page">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="eyebrow">Memories</span>
+      <h2>Family Gallery</h2>
+    </div>
+
+    <button
+      class="btn primary admin-only"
+      id="galleryUploadBtn">
+      Upload Photo
+    </button>
+
+  </div>
+
+  <div class="filter-row" id="galleryFilters"></div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+</section>
+
+
+<!-- TIMELINE -->
+<section id="timeline" class="page">
+
+  <div class="section-heading">
+
+    <div>
+      <span class="eyebrow">Our Journey</span>
+      <h2>Family Timeline</h2>
+    </div>
+
+    <button
+      class="btn primary admin-only"
+      id="addEventBtn">
+      Add Event
+    </button>
+
+  </div>
+
+  <div class="timeline" id="timelineList"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="page">
+
+  <div class="about-layout">
+
+    <div>
+
+      <span class="eyebrow">Our Roots</span>
+
+      <h2>About Our Family</h2>
+
+      <p class="lead">
+        This space is more than a family tree.
+        It is a place to preserve the names, faces,
+        stories and memories that connect us across generations.
+      </p>
+
+      <p>
+        Edit this section to tell your family's story,
+        traditions, origins, values and important memories.
+      </p>
+
+    </div>
+
+    <div class="about-card">
+
+      <span class="about-icon">❦</span>
+
+      <h3>Four Generations</h3>
+
+      <p>
+        From the people who came before us to the youngest
+        members of the family, every branch belongs to the same story.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- PROFILE MODAL -->
+<div class="modal" id="profileModal">
+
+  <div class="modal-card profile-modal">
+
+    <button class="modal-close" data-close>×</button>
+
+    <div id="profileContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ADMIN MODAL -->
+<div class="modal" id="adminModal">
+
+  <div class="modal-card">
+
+    <button class="modal-close" data-close>×</button>
+
+    <div id="adminContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- GALLERY MODAL -->
+<div class="modal" id="galleryModal">
+
+  <div class="modal-card gallery-modal">
+
+    <button class="modal-close" data-close>×</button>
+
+    <div id="galleryContent"></div>
+
+  </div>
+
+</div>
+
+
+<input
+  type="file"
+  id="hiddenPhotoInput"
+  accept="image/*"
+  hidden
+>
+
+
+<footer>
+
+  <p>
+    Made with love for the family •
+    <span id="footerYear"></span>
+  </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
+```
