@@ -1,932 +1,309 @@
-<!DOCTYPE html>
-<html lang="en">
+Build a beautiful, modern, responsive FAMILY TREE WEBSITE for a family with 4 generations.
 
-<head>
+The website should be designed as a digital family history/memorial website where family members can view relationships, names, photos, dates, and short biographies.
 
-<meta charset="UTF-8">
+MAIN REQUIREMENTS:
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+1. FAMILY TREE
+- Create an interactive family tree covering 4 generations.
+- The generations should be clearly separated:
+  Generation 1: Great-grandparents
+  Generation 2: Grandparents
+  Generation 3: Parents, uncles, aunts
+  Generation 4: Children and grandchildren
+- Display each person as a profile card.
+- Each profile card should contain:
+  - Profile picture
+  - Full name
+  - Date of birth
+  - Date of death (if applicable)
+  - Spouse
+  - Relationship/title
+  - Short biography
+- Connect family members with clear visual lines showing:
+  - Parent-child relationships
+  - Marriage/spouse relationships
+  - Sibling relationships
 
-<title>Ahmad Shuaibu | Professional Profile</title>
+2. INTERACTIVE FAMILY TREE
+- Make the family tree horizontally scrollable on smaller screens.
+- Allow users to zoom in and out.
+- Allow users to click on a person to open a larger profile.
+- Add smooth animations when opening profiles.
+- Include a "Home/Overview" button that returns the user to the complete family tree.
+- Make the tree easy to understand even when there are many family members.
 
-<style>
+3. PHOTO UPLOAD FUNCTION
+Create a photo upload feature for family members.
 
-/* =========================
-   GENERAL
-========================= */
+Each person should have:
+- An "Upload Photo" button
+- Ability to select an image from the device
+- Image preview before saving
+- Ability to replace an existing photo
+- Ability to remove a photo
+- Automatically crop/resize photos so profile pictures have a consistent appearance.
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+IMPORTANT:
+Do not make the upload feature only visual. Structure the application so uploaded images can actually be stored and associated with the correct family member.
+
+If a backend is required, use:
+- Firebase Storage for images
+- Firebase Firestore for family-member information
+
+If Firebase is not available, create a clearly separated frontend version using localStorage as a temporary solution and explain where Firebase can later be connected.
+
+4. ADD FAMILY MEMBER
+Create an "Add Family Member" form.
+
+Fields:
+- Full name
+- Gender
+- Date of birth
+- Date of death
+- Relationship
+- Generation
+- Spouse
+- Father
+- Mother
+- Biography
+- Profile picture
+
+After submitting, the new person should appear in the correct position in the family tree.
+
+5. EDIT FAMILY MEMBER
+Allow an authorized user/admin to:
+- Edit name
+- Edit dates
+- Edit biography
+- Change relationships
+- Replace profile picture
+- Delete a family member
+
+Before deleting a person, display a confirmation message.
+
+6. FAMILY PHOTO GALLERY
+Create a separate "Family Gallery" page.
+
+Features:
+- Upload family photographs
+- Display photos in a beautiful responsive grid
+- Clicking a photo opens it in a larger lightbox
+- Show caption/date if available
+- Allow admin to delete photos
+- Organize photos by:
+  - Family events
+  - Weddings
+  - Birthdays
+  - Reunions
+  - Old family photos
+  - Memorials
+  - Other
+
+7. PERSON PROFILE PAGE
+When a family member is clicked, show a detailed profile page containing:
+- Large profile picture
+- Full name
+- Family relationship
+- Birth/death information
+- Biography
+- Parents
+- Spouse
+- Children
+- Siblings
+- Photos
+- A small family-tree section showing where that person belongs in the family.
+
+8. FAMILY TIMELINE
+Create a timeline showing important family events.
+
+Examples:
+- Births
+- Marriages
+- Graduations
+- Relocations
+- Family reunions
+- Important achievements
+- Deaths/memorials
+
+Each event should have:
+- Date
+- Title
+- Description
+- Optional photograph
+
+9. DESIGN
+Use a warm, elegant family-history design.
+
+Suggested style:
+- Cream/white background
+- Gold or dark green accents
+- Elegant typography
+- Soft shadows
+- Rounded profile cards
+- Subtle animations
+- Large family photographs
+- Clean modern layout
+
+The website should feel like a combination of:
+- A family archive
+- A digital family tree
+- A photo album
+- A family history book
+
+10. NAVIGATION
+
+Create a navigation bar containing:
+
+HOME
+FAMILY TREE
+FAMILY MEMBERS
+PHOTO GALLERY
+TIMELINE
+ABOUT OUR FAMILY
+
+On mobile, convert the navigation into a hamburger menu.
+
+11. HOME PAGE
+
+The homepage should contain:
+
+Hero section:
+"OUR FAMILY STORY"
+
+Subtitle:
+"Four Generations • One Family • One Story"
+
+Display a large family photograph.
+
+Include buttons:
+"EXPLORE FAMILY TREE"
+"VIEW FAMILY GALLERY"
+
+Below the hero section show:
+- Number of generations
+- Number of family members
+- Number of family photos
+- Important family quote
+
+12. SEARCH
+
+Add a search box that allows users to search for family members by:
+- Name
+- Relationship
+- Generation
+
+13. RESPONSIVE DESIGN
+
+The website must work properly on:
+- Desktop
+- Laptop
+- Tablet
+- Android phones
+- iPhones
+
+The family tree should remain usable on small screens.
+
+14. ADMIN AREA
+
+Create a simple admin dashboard where the family administrator can:
+- Add family members
+- Edit family members
+- Delete family members
+- Upload photos
+- Manage gallery
+- Add timeline events
+
+Protect the admin area with authentication.
+
+15. DATA STRUCTURE
+
+Structure the family-member data so that relationships are stored using unique IDs rather than only names.
+
+For example:
+
+{
+  id: "person001",
+  name: "John Doe",
+  gender: "male",
+  birthDate: "1940-05-12",
+  deathDate: "",
+  photo: "",
+  fatherId: "",
+  motherId: "",
+  spouseIds: [],
+  childrenIds: [],
+  generation: 1,
+  biography: ""
 }
 
-html {
-    scroll-behavior: smooth;
-}
+This should make it possible to dynamically generate the family tree.
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: #f4f7fa;
-}
+16. TECHNICAL REQUIREMENTS
 
+Use:
+- HTML5
+- CSS3
+- JavaScript
 
-/* =========================
-   HEADER
-========================= */
+If a framework is appropriate, React can be used.
 
-header {
-    background: #0b3d62;
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
-    position: relative;
-}
+Use clean, well-organized code.
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid white;
-    margin-bottom: 15px;
-}
+Separate:
+- HTML/components
+- CSS
+- JavaScript/data
+- Firebase configuration
 
-header h1 {
-    font-size: 34px;
-    margin-bottom: 8px;
-}
+Do not put everything into one huge file unless necessary.
 
-header p {
-    font-size: 18px;
-}
+17. SAMPLE FAMILY DATA
 
+Create realistic placeholder data for 4 generations so that I can immediately see how the website works.
 
-/* =========================
-   EXISTING NAVIGATION
-========================= */
+Use names such as:
 
-nav {
-    background: #082f49;
-    text-align: center;
-    padding: 14px 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+Generation 1:
+Great-grandfather
+Great-grandmother
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    display: inline-block;
-}
+Generation 2:
+Grandfather
+Grandmother
+Their siblings
 
-nav a:hover {
-    color: #25D366;
-}
+Generation 3:
+Father
+Mother
+Uncles
+Aunts
 
+Generation 4:
+Children
+Cousins
 
-/* =================================================
-   HAMBURGER MENU
-================================================= */
+Clearly label all sample information as placeholder data so it can easily be replaced with my real family information.
 
-.hamburger-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 99999;
-}
+18. IMPORTANT USER EXPERIENCE REQUIREMENT
 
+The website must be easy for a non-technical family administrator to maintain.
 
-/* Three-line button */
+I should be able to add a new family member without editing the source code.
 
-.hamburger-button {
-    width: 50px;
-    height: 50px;
+I should also be able to upload photographs directly from the website.
 
-    background: white;
-    border: 2px solid #082f49;
-    border-radius: 8px;
+19. FINAL OUTPUT
 
-    cursor: pointer;
+Provide:
+- Complete working source code
+- All HTML/CSS/JavaScript files
+- Firebase setup instructions if Firebase is used
+- Database structure
+- Instructions for deploying the website
+- Instructions for adding the first 4 generations
+- Instructions for creating the admin account
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+Make sure there are no broken buttons or placeholder functions pretending to work.
 
-    gap: 5px;
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-
-
-/* Three lines */
-
-.hamburger-button span {
-    width: 27px;
-    height: 3px;
-
-    background: #082f49;
-
-    display: block;
-
-    border-radius: 3px;
-
-    transition: 0.3s;
-}
-
-
-/* Change to X */
-
-.hamburger-button.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger-button.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-button.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* Dropdown */
-
-.hamburger-dropdown {
-    position: absolute;
-
-    top: 60px;
-    right: 0;
-
-    width: 190px;
-
-    background: white;
-
-    border-radius: 8px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
-    overflow: hidden;
-
-    display: none;
-}
-
-
-/* Display dropdown */
-
-.hamburger-dropdown.show {
-    display: block;
-}
-
-
-/* Dropdown links */
-
-.hamburger-dropdown a {
-    display: block;
-
-    padding: 15px 18px;
-
-    color: #082f49;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-.hamburger-dropdown a:last-child {
-    border-bottom: none;
-}
-
-.hamburger-dropdown a:hover {
-    background: #eaf3f8;
-    color: #0b3d62;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px 25px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-section h2 {
-    color: #0b3d62;
-    margin-bottom: 15px;
-    font-size: 26px;
-}
-
-section p {
-    margin-bottom: 10px;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.skill {
-    background: #eaf3f8;
-    padding: 16px;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button {
-    display: inline-block;
-    background: #0b3d62;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 10px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #082f49;
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp-button {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 10px;
-    margin-left: 8px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.whatsapp-button:hover {
-    background: #128C7E;
-}
-
-
-/* =========================
-   ARCHIVE
-========================= */
-
-.archive-intro {
-    margin-bottom: 20px;
-}
-
-.archive-list {
-    margin-top: 20px;
-}
-
-.document {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eef5f9;
-    padding: 16px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    border-left: 5px solid #0b3d62;
-}
-
-.document-info {
-    flex: 1;
-}
-
-.document-name {
-    font-weight: bold;
-    color: #0b3d62;
-    font-size: 17px;
-}
-
-.document-type {
-    font-size: 13px;
-    color: #666;
-    margin-top: 3px;
-}
-
-.document-button {
-    background: #0b3d62;
-    color: white;
-    padding: 9px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 15px;
-    white-space: nowrap;
-}
-
-.document-button:hover {
-    background: #082f49;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-info {
-    margin-top: 15px;
-}
-
-.contact-info p {
-    margin: 8px 0;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #082f49;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 40px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    header {
-        padding: 35px 15px;
-    }
-
-    header h1 {
-        font-size: 27px;
-    }
-
-    header p {
-        font-size: 16px;
-    }
-
-    .profile-photo {
-        width: 125px;
-        height: 125px;
-    }
-
-    nav {
-        padding: 10px 5px;
-    }
-
-    nav a {
-        margin: 5px 6px;
-        font-size: 14px;
-    }
-
-    section {
-        margin: 20px 10px;
-        padding: 25px 18px;
-    }
-
-    section h2 {
-        font-size: 23px;
-    }
-
-    .skills {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .skill {
-        padding: 12px 8px;
-        font-size: 14px;
-    }
-
-    .whatsapp-button {
-        margin-left: 0;
-    }
-
-    .document {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .document-button {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .hamburger-container {
-        top: 12px;
-        right: 12px;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-    <!-- HAMBURGER BUTTON -->
-
-    <div class="hamburger-container">
-
-        <button
-            class="hamburger-button"
-            id="hamburgerButton"
-            type="button"
-            aria-label="Open menu">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <!-- DROPDOWN -->
-
-        <div
-            class="hamburger-dropdown"
-            id="hamburgerDropdown">
-
-            <a href="#about">About</a>
-
-            <a href="#archive">My Archive</a>
-
-            <a href="#skills">Skills</a>
-
-            <a href="#contact">Contact</a>
-
-        </div>
-
-    </div>
-
-
-    <img
-        src="profile.jpg"
-        alt="Ahmad Shuaibu"
-        class="profile-photo">
-
-
-    <h1>
-        Ahmad Shuaibu
-    </h1>
-
-
-    <p>
-        Radiographer | Digital Skills | Remote Work Professional
-    </p>
-
-</header>
-
-
-<!-- =========================
-     EXISTING NAVIGATION
-========================= -->
-
-<nav>
-
-    <a href="#about">
-        About
-    </a>
-
-    <a href="#skills">
-        Skills
-    </a>
-
-    <a href="#archive">
-        My Archive
-    </a>
-
-    <a href="#contact">
-        Contact
-    </a>
-
-</nav>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section id="about">
-
-    <h2>
-        About Me
-    </h2>
-
-    <p>
-        I am a qualified Radiographer with professional
-        experience in diagnostic imaging, including Digital
-        Radiography, ultrasonography and Computed
-        Tomography.
-    </p>
-
-    <p>
-        I am also developing my digital and remote-work skills,
-        with experience in Microsoft Word, data entry,
-        documentation, web-design and digital workflows.
-    </p>
-
-    <p>
-        I am interested in opportunities that combine my
-        healthcare background with digital technology,
-        data, remote work and professional development.
-    </p>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section id="skills">
-
-    <h2>
-        My Skills
-    </h2>
-
-    <div class="skills">
-
-        <div class="skill">
-            Radiography
-        </div>
-
-        <div class="skill">
-            CT Imaging
-        </div>
-
-        <div class="skill">
-            Digital Radiography
-        </div>
-
-        <div class="skill">
-            Data Entry
-        </div>
-
-        <div class="skill">
-            Microsoft Word
-        </div>
-
-        <div class="skill">
-            Documentation
-        </div>
-
-        <div class="skill">
-            Hausa-English Communication
-        </div>
-
-        <div class="skill">
-            Digital Skills
-        </div>
-
-        <div class="skill">
-            Remote Work
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CV
-========================= -->
-
-<section>
-
-    <h2>
-        My CV
-    </h2>
-
-    <p>
-        Download my professional CV.
-    </p>
-
-    <a
-        href="Ahmad-Shuaibu-CV.pdf"
-        class="button"
-        download>
-
-        Download My CV
-
-    </a>
-
-</section>
-
-
-<!-- =========================
-     MY ARCHIVE
-========================= -->
-
-<section id="archive">
-
-    <h2>
-        My Archive
-    </h2>
-
-    <p class="archive-intro">
-        Welcome to my personal document archive.
-        This section contains selected professional
-        documents and resources.
-    </p>
-
-
-    <div class="archive-list">
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    My CV
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="Ahmad-Shuaibu-CV.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    PGC CT
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/PGC-CT.jpg"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    PGC Ultrasonography
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/PGC-USS.jpg"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    FDUC ultrasound certificate
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/FDUC-cert.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-info">
-
-                <div class="document-name">
-                    Additional Document
-                </div>
-
-                <div class="document-type">
-                    PDF Document
-                </div>
-
-            </div>
-
-            <a
-                href="archive/document2.pdf"
-                class="document-button"
-                target="_blank">
-
-                Open
-
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section id="contact">
-
-    <h2>
-        Contact Me
-    </h2>
-
-    <div class="contact-info">
-
-        <p>
-            <strong>Email:</strong>
-            dasap93@gmail.com
-        </p>
-
-        <p>
-            <strong>Location:</strong>
-            Abuja, Nigeria
-        </p>
-
-    </div>
-
-
-    <a
-        href="https://wa.me/2348031106283"
-        class="whatsapp-button"
-        target="_blank">
-
-        WhatsApp Me
-
-    </a>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        &copy; 2026 Ahmad Shuaibu.
-        All Rights Reserved.
-    </p>
-
-    <p>
-        My Professional Website
-    </p>
-
-</footer>
-
-
-<!-- =========================
-     HAMBURGER JAVASCRIPT
-========================= -->
-
-<script>
-
-const hamburgerButton =
-    document.getElementById("hamburgerButton");
-
-const hamburgerDropdown =
-    document.getElementById("hamburgerDropdown");
-
-
-hamburgerButton.addEventListener("click", function(event) {
-
-    event.stopPropagation();
-
-    hamburgerDropdown.classList.toggle("show");
-
-    hamburgerButton.classList.toggle("active");
-
-});
-
-
-/* Close when clicking a menu item */
-
-const menuLinks =
-    hamburgerDropdown.querySelectorAll("a");
-
-menuLinks.forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
-        hamburgerDropdown.classList.remove("show");
-
-        hamburgerButton.classList.remove("active");
-
-    });
-
-});
-
-
-/* Close when clicking outside */
-
-document.addEventListener("click", function(event) {
-
-    if (
-        !hamburgerButton.contains(event.target) &&
-        !hamburgerDropdown.contains(event.target)
-    ) {
-
-        hamburgerDropdown.classList.remove("show");
-
-        hamburgerButton.classList.remove("active");
-
-    }
-
-});
-
-</script>
-
-
-</body>
-
-</html>
+The final website should look professional enough to be used as a real family archive.
